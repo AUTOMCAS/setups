@@ -1,5 +1,64 @@
+## Quick use
 
-### Ubuntu acebook project Set up
+### MongoDB
+Start MongoDB in single terminal:
+```
+; sudo systemctl start mongod
+```
+To stop MongoDB:
+```
+; sudo systemctl stop mongod
+```
+### Start backend and frontend in a terminals
+```
+; cd api
+; JWT_SECRET=SUPER_SECRET npm start
+```
+```
+; cd frontend
+; npm start
+```
+### Testing
+#### The Backend (API)
+Start the server in test mode (so that it connects to the test DB)
+```
+; cd api
+; JWT_SECRET=SUPER_SECRET npm run start:test
+```
+
+Then run the tests in a new terminal session
+
+```
+; cd api
+; JWT_SECRET=SUPER_SECRET npm run test
+```
+
+#### The frontend (React)
+
+ Start the server in test mode (so that it connects to the test DB)
+
+  ```
+  ; cd api
+  ; JWT_SECRET=SUPER_SECRET npm run start:test
+  ```
+
+  Then start the front end in a new terminal session
+
+  ```
+  ; cd frontend
+  ; JWT_SECRET=SUPER_SECRET npm start
+  ```
+
+  Then run the tests in a new terminal session
+
+  ```
+  ; cd frontend
+  ; JWT_SECRET=SUPER_SECRET npm run test
+  ```
+
+
+
+## Ubuntu acebook project set up
 
 1. Fork this repository
 2. Rename your fork to `acebook-<team name>`
@@ -34,83 +93,3 @@
     ```  
     sudo systemctl stop mongod
     ```
-
-### Start
-
-1. Start the server
-
-  **Note the use of an environment variable for the JWT secret**
-
-   ```
-   ; cd api
-   ; JWT_SECRET=SUPER_SECRET npm start
-   ```
-2. Start the front end
-
-  In a new terminal session...
-
-  ```
-  ; cd frontend
-  ; npm start
-  ```
-
-You should now be able to open your browser and go to `http://localhost:3000/signup` to create a new user.
-
-Then, after signing up, you should be able to log in by going to `http://localhost:3000/login`.
-
-After logging in, you won't see much but you can create posts using PostMan and they shoud then show up in the browser if you refresh the page.
-
-### Testing
-
-
-#### The Backend (API)
-
-**Note the use of an environment variable for the JWT secret**
-
-  Start the server in test mode (so that it connects to the test DB)
-
-  ```
-  ; cd api
-  ; JWT_SECRET=SUPER_SECRET npm run start:test
-  ```
-
-  Then run the tests in a new terminal session
-
-  ```
-  ; cd api
-  ; JWT_SECRET=SUPER_SECRET npm run test
-  ```
-
-#### The frontend (React)
-
-**Note the use of an environment variable for the JWT secret**
-
-  Start the server in test mode (so that it connects to the test DB)
-
-  ```
-  ; cd api
-  ; JWT_SECRET=SUPER_SECRET npm run start:test
-  ```
-
-  Then start the front end in a new terminal session
-
-  ```
-  ; cd frontend
-  ; JWT_SECRET=SUPER_SECRET npm start
-  ```
-
-  Then run the tests in a new terminal session
-
-  ```
-  ; cd frontend
-  ; JWT_SECRET=SUPER_SECRET npm run test
-  ```
-
-## MongoDB Connection Errors?
-
-Some people occasionally experience MongoDB connection errors when running the tests or trying to use the application. Here are some tips which might help resolve such issues.
-
-- Check that MongoDB is installed using `mongo --version`
-- Check that it's running using `brew services list`
-
-If you have issues that are not resolved by these tips, please reach out to a coach and, once the issue is resolved, we can add a new tip!
