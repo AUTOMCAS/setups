@@ -13,8 +13,9 @@ npm - Software registry to share and borrow packages.
 5. Install jest: `npm install jest-environment-jsdom`
 6. Add build script to package.json, under `test`: `,"build": "esbuild index.js --bundle  --outfile=bundle.js --watch"`
 8. Create `index.html` and `index.js`
-8. add `<script src="bundle.js"></script>` to `index.html` body
-7. Run builder: `npm run build`
+9. add `<script src="bundle.js"></script>` to `index.html` body
+10. Run jest fetch mock install: `npm install --save jest-fetch-mock`
+11. Run builder: `npm run build`
 
 **If using existing directory:**  
 Install dependencies: `npm install`
@@ -63,6 +64,10 @@ describe('Client class', () => {
 });
 ```
 
+```js
+expect(fetch).toHaveBeenCalledTimes(1)
+expect(fetch).toHaveBeenCalledWith('url')
+```
 ## From scratch
 
 ```bash
